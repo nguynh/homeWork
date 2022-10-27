@@ -1,5 +1,5 @@
 context("Check local linear regression function")
-source("llr_functions.R")
+source("llr_function.R")
 
 n = 150
 ## a very simple regression model
