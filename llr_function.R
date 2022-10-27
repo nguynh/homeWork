@@ -9,8 +9,8 @@ compute_f_hat <- function(z, x, y, omega) {
   W <- make_weight_matrix(z, x, omega)
   X <- make_predictor_matrix(x)
   y <- matrix(y)
-  WX <- apply(X, 2, function(t) W*t)
-  Wy <- apply(y, 2, function(t) W*t)
+  WX <- sweep(X, 1, W, FUN = "*")
+  Wy <- W*y
   f_hat <- c(1,z) %*% solve(t(X) %*% WX) %*% t(X) %*% Wy
   return(f_hat)
 }
